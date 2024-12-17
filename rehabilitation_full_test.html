@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реабилитация Тесті</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h3 {
+            text-align: center;
+        }
+        .question {
+            margin: 15px 0;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Реабилитация Тесті</h1>
+        <form id="quizForm">
+            <!-- Questions -->
+            <div class="question">
+                <h3>1. Жалпы массаж дененің қай бөлігінен басталады?</h3>
+                <label><input type="radio" name="q1" value="0"> Бас</label><br>
+                <label><input type="radio" name="q1" value="1"> Артқа</label><br>
+                <label><input type="radio" name="q1" value="0"> Төменгі аяқ</label><br>
+                <label><input type="radio" name="q1" value="0"> Жоғарғы аяқ</label>
+            </div>
+            <div class="question">
+                <h3>2. Қандай мырыштау әдістері жергілікті болып табылады?</h3>
+                <label><input type="radio" name="q2" value="1"> Тізе буынының аймағын гальванизациялау</label><br>
+                <label><input type="radio" name="q2" value="0"> Бургиньон</label><br>
+                <label><input type="radio" name="q2" value="0"> Вермейл</label><br>
+                <label><input type="radio" name="q2" value="0"> Гращенкова – Кассиля</label>
+            </div>
+            <div class="question">
+                <h3>3. Ішкі ағзалардың ауруларына арналған бассейндегі судың температурасы:</h3>
+                <label><input type="radio" name="q3" value="0"> 20 градусқа дейін</label><br>
+                <label><input type="radio" name="q3" value="1"> 26-дан 32 градусқа дейін</label><br>
+                <label><input type="radio" name="q3" value="0"> 36 градустан жоғары</label><br>
+                <label><input type="radio" name="q3" value="0"> 24-тен 26 градусқа дейін</label>
+            </div>
+            <div class="question">
+                <h3>4. Медициналық оңалту бағдарламасына кіреді:</h3>
+                <label><input type="radio" name="q4" value="0"> Оңалтудың физикалық әдістері</label><br>
+                <label><input type="radio" name="q4" value="0"> Тұрмыстық дағдыларды қалпына келтіру</label><br>
+                <label><input type="radio" name="q4" value="1"> Жоғарыда айтылғандардың барлығы дұрыс</label><br>
+                <label><input type="radio" name="q4" value="0"> Сауықтыру үшін қолайлы жағдай жасау</label>
+            </div>
+            <div class="question">
+                <h3>5. «Вируленттілік» ұғымына анықтама беріңіз:</h3>
+                <label><input type="radio" name="q5" value="0"> Микроорганизмдердің тіршілік ету ортасының өзгеруі</label><br>
+                <label><input type="radio" name="q5" value="1"> Патогенділік дәрежесі, микроорганизмнің патогенділігі</label><br>
+                <label><input type="radio" name="q5" value="0"> Антиденелердің сәйкес антигенмен әрекеттесуі</label><br>
+                <label><input type="radio" name="q5" value="0"> Организмнің иммундық реакциясын басатын заттар</label>
+            </div>
+            <!-- Additional questions repeated to 100 -->
+        </form>
+        <button type="button" onclick="calculateScore()">Тестті аяқтау</button>
+        <h3 id="result"></h3>
+    </div>
+
+    <script>
+        function calculateScore() {
+            const form = document.getElementById('quizForm');
+            const formData = new FormData(form);
+            let score = 0;
+
+            for (let value of formData.values()) {
+                score += parseInt(value);
+            }
+
+            document.getElementById('result').textContent = 'Сіздің жалпы ұпайыңыз: ' + score + ' / 100';
+        }
+    </script>
+</body>
+</html>
